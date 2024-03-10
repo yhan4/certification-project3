@@ -1,36 +1,29 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 /**
  * Importing other components
  */
-import Home from './components/Home'
-import About from './components/About'
+import Home from './pages/Home'
+import About from './pages/About'
+import AllLists from './pages/AllLists'
+import OneList from './pages/OneList'
+
+
+
 
 const App = () => {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
-        </nav>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL.
-            Furthermore, notice how the content above always renders? On each page? */}
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/all-lists" element={<AllLists />} />
+          <Route path="/one-list/:listId" element={<OneList />} />
         </Routes>
       </div>
     </Router>
